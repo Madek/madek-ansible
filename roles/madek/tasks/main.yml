@@ -58,15 +58,15 @@
             owner=madek
             mode=0755
 
-### configure color scheme ###################################################
+### configure the SASS/CSS #####################################################
 
 - file: path={{madek_root_dir}}/app/assets/stylesheets/config/local
         state=directory
         owner=madek
         mode=0755
 
-- template: src=colors.sass
-            dest={{madek_root_dir}}/app/assets/stylesheets/config/local/_colors.sass
+- template: src=css_config.sass
+            dest={{madek_root_dir}}/app/assets/stylesheets/config/local/_config.sass
             owner=madek
 
 

@@ -17,3 +17,6 @@ database:
   database: madek_production
   pool: "{{ 5 + passenger_max_pool_size | int }}"
 
+# colors
+color_theme: teal
+custom_color: false

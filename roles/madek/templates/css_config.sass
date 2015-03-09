@@ -1,0 +1,10 @@
+// SASS (CSS) configuration
+
+// Colors
+{% if color_theme %}
+$madek-color-theme :  {{color_theme}}
+{% endif %}
+
+{% if custom_color is defined and custom_color %}
+$madek-custom-color : {{custom_color}}
+{% endif %}

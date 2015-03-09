@@ -8,7 +8,7 @@ release:
   version_pre: development
   version_build: ¡DELETE!
 
-color_scheme: blue
+color_theme: blue
 custom_color: '#6149c1' # purple
 
 

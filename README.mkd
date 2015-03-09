@@ -46,15 +46,19 @@ Be aware:
 * Resetting the data is required if migrations are mutated. 
 
 
-### Configure the Color Scheme
+### Configure the Color Theme
 
-Madek comes with 4 predefined color schemes: green, red, blue and mono. The
-color scheme can be configured by setting the `color_scheme` variable. 
-You can also set a `custom_color` variable to a valid CSS color, which will 
-override the main color *on top of* the chosen scheme.
+Madek comes with 4 predefined color themes: teal, red, blue and mono. The
+color theme can be configured by setting the `color_theme` variable.
 
-This is most conveniently performed in the variables file for your specific host. 
+You can also set a `custom_color` variable to a valid CSS color, which will
+*override the main color* of the chosen theme.
+
+This is most conveniently performed in the variables file for your specific host.
 See `host_vars/test-vm` for example.
+
+For quick testing, it can also be set as an argument:
+    ansible-playbook […] -e custom_color=rebeccapurple
 
 
 ### Configure Zencoder
