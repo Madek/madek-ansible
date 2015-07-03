@@ -1,0 +1,13 @@
+# TODO why not bundle as root?
+- name: Bundle MRI
+  shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
+          && rbenv-load
+          && cd {{madek_root_dir}}/webapp/
+          && export RAILS_ENV={{rails_env}}
+          && export RBENV_VERSION={{mri_ruby_version}}
+          && bundle install --deployment' {{madek_user}}
+         executable=/bin/bash
+  register: bundle_mri
+  changed_when: bundle_mri.stdout | match(".*Installing.*")
+
+

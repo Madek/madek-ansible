@@ -1,19 +1,22 @@
-- name: Add the group "madek"
-  group:  name=madek
-          system=true
+- name: Add the group
+  group:
+    name: "{{madek_user}}"
+    system: true
 
-- name: Add the user "madek"
-  user: name=madek
-        generate_ssh_key=yes
-        group=madek
-        system=yes
-        shell=/bin/bash
-        uid=1002
+- name: Add the user
+  user:
+    name: "{{madek_user}}"
+    generate_ssh_key: yes
+    group: "{{madek_user}}"
+    system: yes
+    shell: /bin/bash
+    uid: 1002
 
 - name: Create or update postgresql user
-  postgresql_user:  name={{database.username}}
-                    password={{database.password}}
-                    role_attr_flags=CREATEDB,SUPERUSER
-                    login_user=root
-                    port={{database.port}}
+  postgresql_user:
+    name: "{{database.user}}"
+    password: "{{database.password}}"
+    role_attr_flags: CREATEDB,SUPERUSER
+    login_user: root
+    port: "{{database.port}}"
 

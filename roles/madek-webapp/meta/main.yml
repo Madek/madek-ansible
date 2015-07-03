@@ -1,0 +1,23 @@
+dependencies:
+
+  - role: install_nodejs
+
+  - role: madek-user
+
+  - role: rbenv
+    user: "{{madek_user}}"
+
+  - role: rbenv-ruby
+    user: "{{madek_user}}"
+    ruby:
+      version: 2.1.5
+      alias: 2.1
+      present: True
+      default: True
+
+  - role: rbenv-ruby
+    user: "{{madek_user}}"
+    ruby:
+      version: jruby-9.0.0.0.rc1
+      alias: jruby-9000
+      present: True

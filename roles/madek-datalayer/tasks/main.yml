@@ -1,0 +1,12 @@
+- name: Migrate
+  shell:  su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
+            && rbenv-load
+            && cd {{madek_root_dir}}/webapp/
+            && export RAILS_ENV={{rails_env}}
+            && export RBENV_VERSION={{mri_ruby_version}}
+            && bundle exec rake db:create db:migrate' {{madek_user}}
+          executable=/bin/bash
+  register: migrate
+  changed_when: not migrate.stdout | match("")
+
+

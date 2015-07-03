@@ -1,16 +1,23 @@
+web_sub_path: ""
+web_ui_prefix: ""
+
+madek_user: madek
+madek_root_dir: '/var/local/madek'
+rails_env: production
+
 ### global defaults ############################################################
 
 mri_ruby_version: 2.1.5
 
-# can be overridden 
+# can be overridden
 database_password: madek
 
 # database
 database:
-  username: madek
+  user: madek
   password: "{{database_password}}"
   hostname: localhost
   port: 5432
-  database: madek-v3_production
+  name: madek-v3_production
   pool: 25
 

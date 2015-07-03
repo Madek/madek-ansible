@@ -1,9 +1,13 @@
 ### specific settings for a local virtual machine
 
-color_scheme: blue
-custom_color: '#6149c1' # purple
+secret_key_base: secret
 
-### Zencoder ##################################################################
+webapp:
+
+  color_scheme: blue
+  custom_color: '#6149c1' # purple
+
+  ### Zencoder ##################################################################
 
 zencoder_enabled: False
 zencoder_test_mode: True
