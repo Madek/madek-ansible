@@ -22,3 +22,50 @@
   changed_when: not precompile_assets.stderr | match("")
 
 
+- name: Configure logrotation
+  template: src=logrotate
+            dest=/etc/logrotate.d/{{madek_webapp_service_name}}
+
+### Shared Service #############################################################
+
+- template: src=wrapper.sh
+            dest={{madek_webapp_wrapper_bin}}
+            mode=755
+  register: madek_webapp_wrapper
+
+- template: src=start.sh
+            dest={{madek_webapp_service_bin}}
+            mode=755
+  register: madek_webapp_start
+
+
+### Upstart Service ############################################################
+
+- template: src=init.conf
+            dest=/etc/init/cider-ci_user-interface.conf
+  register: init_script
+  when: ansible_distribution_release == 'trusty'
+
+
+### Systemd Service ############################################################
+
+- template: src=service.conf
+            dest=/etc/systemd/system/{{madek_webapp_service_name}}.service
+  register: madek_webapp_systemd_service
+  when: ansible_distribution_release == 'jessie'
+
+### enable
+
+- service: name={{madek_webapp_service_name}} enabled=yes
+
+
+### (re-) start service #######################################################
+
+- command: logrotate -f /etc/logrotate.d/{{madek_webapp_service_name}}
+
+- service:  name={{madek_webapp_service_name}}
+            state=restarted
+
+- service:  name={{madek_webapp_service_name}}
+            state=started
+

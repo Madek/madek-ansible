@@ -1,5 +1,5 @@
-# Managed by ansible 
-{{user_interface_log_dir}}/*.log {{ui_root_path}}/log/*.log {
+# Managed by ansible
+{{madek_webapp_log_dir}}/*.log {{madek_webapp_dir}}/log/*.log {
 daily
 missingok
 rotate 21
