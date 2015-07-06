@@ -10,14 +10,17 @@ dependencies:
   - role: rbenv-ruby
     user: "{{madek_user}}"
     ruby:
-      version: 2.1.5
-      alias: 2.1
+      version: "{{rubies.mri.version}}"
+      alias: "{{rubies.mri.alias}}"
       present: True
       default: True
 
   - role: madek-configuration
 
-  - role: madek-bundle-mri
+  - role: bundle
+    path: "{{madek_webapp_dir}}"
+    user: "{{madek_user}}"
+    ruby_version: "{{rubies.mri.version}}"
 
   - role: madek-npm
 

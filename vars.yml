@@ -1,3 +1,11 @@
+rubies:
+  jruby:
+    version: jruby-9.0.0.0.rc1
+    alias: jruby-9000
+  mri:
+    version: 2.1.5
+    alias: ruby-2.1
+
 web_sub_path: ""
 web_ui_prefix: ""
 
@@ -8,7 +16,6 @@ rails_env: production
 
 ### global defaults ############################################################
 
-mri_ruby_version: 2.1.5
 
 # can be overridden
 database_password: madek
