@@ -3,6 +3,7 @@ web_ui_prefix: ""
 
 madek_user: madek
 madek_root_dir: '/var/local/madek'
+madek_webapp_dir: "{{madek_root_dir}}/webapp"
 rails_env: production
 
 ### global defaults ############################################################

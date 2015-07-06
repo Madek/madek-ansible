@@ -1,5 +1,5 @@
 - file:
-    path: "{{madek_root_dir}}/webapp/node_modules"
+    path: "{{madek_webapp_dir}}/node_modules"
     owner: "{{madek_user}}"
     group: "{{madek_user}}"
     state: directory
@@ -8,7 +8,7 @@
 - name: npm install
   shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
           && rbenv-load
-          && cd {{madek_root_dir}}/webapp/
+          && cd {{madek_webapp_dir}}/
           && npm install' {{madek_user}}
   register: npm_install
 
