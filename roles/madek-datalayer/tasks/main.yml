@@ -1,3 +1,10 @@
+- file:
+    path: "{{madek_root_dir}}/webapp/db"
+    owner: "{{madek_user}}"
+    group: "{{madek_user}}"
+    state: directory
+    recurse: yes
+
 - name: Migrate
   shell:  su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
             && rbenv-load

@@ -1,4 +1,25 @@
-# TODO why not bundle as root?
+- file:
+    path: "{{madek_root_dir}}/webapp/log"
+    owner: "{{madek_user}}"
+    group: "{{madek_user}}"
+    state: directory
+    recurse: yes
+
+- file:
+    path: "{{madek_root_dir}}/webapp/.bundle"
+    owner: "{{madek_user}}"
+    group: "{{madek_user}}"
+    state: directory
+    recurse: yes
+
+- file:
+    path: "{{madek_root_dir}}/webapp/vendor/bundle"
+    owner: "{{madek_user}}"
+    group: "{{madek_user}}"
+    state: directory
+    recurse: yes
+
+
 - name: Bundle MRI
   shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
           && rbenv-load
@@ -9,5 +30,3 @@
          executable=/bin/bash
   register: bundle_mri
   changed_when: bundle_mri.stdout | match(".*Installing.*")
-
-
