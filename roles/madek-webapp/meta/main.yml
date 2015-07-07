@@ -4,6 +4,18 @@ dependencies:
 
   - role: madek-user
 
+  - role: rbenv-ruby
+    user: "{{madek_user}}"
+    ruby:
+      version: "{{rubies.jruby.version}}"
+      alias: "{{rubies.jruby.alias}}"
+      present: True
+
+  - role: bundle
+    path: "{{madek_webapp_dir}}"
+    user: "{{madek_user}}"
+    ruby_version: "{{rubies.jruby.version}}"
+
   - role: rbenv
     user: "{{madek_user}}"
 
@@ -19,18 +31,6 @@ dependencies:
     path: "{{madek_webapp_dir}}"
     user: "{{madek_user}}"
     ruby_version: "{{rubies.mri.version}}"
-
-  - role: rbenv-ruby
-    user: "{{madek_user}}"
-    ruby:
-      version: "{{rubies.jruby.version}}"
-      alias: "{{rubies.jruby.alias}}"
-      present: True
-
-  - role: bundle
-    path: "{{madek_webapp_dir}}"
-    user: "{{madek_user}}"
-    ruby_version: "{{rubies.jruby.version}}"
 
   - role: madek-configuration
 
