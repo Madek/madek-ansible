@@ -6,8 +6,6 @@ rubies:
     version: 2.1.5
     alias: ruby-2.1
 
-web_sub_path: ""
-web_ui_prefix: ""
 madek_webapp_port: 8880
 madek_webapp_context: "/my-madek"
 madek_webapp_context_filename_part: '{{madek_webapp_context | replace("/","_")}}'
