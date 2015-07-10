@@ -25,6 +25,9 @@
 
     - role: madek-webapp
 
+    - role: server-reverse-proxy
+      tags: [debug]
+
 #
 #    - role: madek_reset_data
 #      tags: reset-data

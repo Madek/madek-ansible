@@ -8,6 +8,9 @@ rubies:
 
 web_sub_path: ""
 web_ui_prefix: ""
+madek_webapp_port: 8880
+madek_webapp_context: "/my-madek"
+madek_webapp_context_filename_part: '{{madek_webapp_context | replace("/","_")}}'
 
 madek_user: madek
 madek_root_dir: '/var/local/madek'
