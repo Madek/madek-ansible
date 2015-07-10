@@ -6,12 +6,13 @@ rubies:
     version: 2.1.5
     alias: ruby-2.1
 
+
 madek_webapp_port: 8880
 madek_webapp_context: "/my-madek"
-madek_webapp_context_filename_part: '{{madek_webapp_context | replace("/","_")}}'
+madek_webapp_context_filename_part: '{{madek_webapp_context | default("root") | replace("/","_")}}'
 
-madek_user: madek
-madek_root_dir: '/var/local/madek'
+madek_user: madek_{{madek_webapp_context_filename_part}}
+madek_root_dir: '/var/local/madek_{{madek_webapp_context_filename_part}}'
 madek_webapp_dir: "{{madek_root_dir}}/webapp"
 rails_env: production
 
@@ -23,10 +24,10 @@ database_password: madek
 
 # database
 database:
-  user: madek
+  user: madek_{{madek_webapp_context_filename_part}}
   password: "{{database_password}}"
   hostname: localhost
   port: 5432
-  name: madek-v3_production
+  name: madek-v3_{{madek_webapp_context_filename_part}}_production
   pool: 25
 
