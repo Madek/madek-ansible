@@ -10,6 +10,8 @@ rubies:
 madek_webapp_port: 8880
 madek_webapp_context: "/my-madek"
 madek_webapp_context_filename_part: '{{madek_webapp_context | default("root") | replace("/","_")}}'
+madek_configuration_management_url: 'http://localhost:{{madek_webapp_port}}{{madek_webapp_context}}/configuration_management_backdoor/invoke'
+
 
 madek_user: madek_{{madek_webapp_context_filename_part}}
 madek_root_dir: '/var/local/madek_{{madek_webapp_context_filename_part}}'
