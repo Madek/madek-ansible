@@ -37,5 +37,3 @@ db_backups_enabled: False
 passenger_min_instances: 1
 passenger_max_pool_size: 1
 
-
-

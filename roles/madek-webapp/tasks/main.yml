@@ -6,6 +6,8 @@
     - imagemagick
 
 
+### secrets ####################################################################
+
 - name: Create secrets
   template: src=secrets.yml
             dest={{madek_webapp_dir}}/config/secrets.yml
@@ -14,6 +16,17 @@
             mode=0600
   register: secret
 
+
+### configure color scheme ###################################################
+
+- file: path={{madek_webapp_dir}}/app/assets/stylesheets/config/local
+        state=directory
+        owner={{madek_user}}
+        mode=0755
+
+- template: src=colors.sass
+            dest={{madek_webapp_dir}}/app/assets/stylesheets/config/local/_colors.sass
+            owner={{madek_user}}
 
 - name: Precompile assets
   shell:  su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
@@ -29,6 +42,7 @@
   register: precompile_assets
   changed_when: not precompile_assets.stderr | match("")
 
+### logs #######################################################################
 
 - name: Configure logrotation
   template: src=logrotate

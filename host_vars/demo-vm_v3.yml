@@ -1,11 +1,15 @@
 ### specific settings for a local virtual machine
 
+madek_webapp_port: 8881
+madek_webapp_context: "/v3"
+
+
 secret_key_base: secret
 
 webapp:
 
   color_scheme: blue
-  custom_color: '#6149c1' # purple
+  # custom_color: '#6149c1' # purple
 
   ### Zencoder ##################################################################
 
@@ -24,5 +28,4 @@ ssh_keys:
 
 ### Passenger #################################################################
 passenger_min_instances: 1
-
 

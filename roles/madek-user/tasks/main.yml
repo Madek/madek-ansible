@@ -10,7 +10,6 @@
     group: "{{madek_user}}"
     system: yes
     shell: /bin/bash
-    uid: 1002
 
 - name: Create or update postgresql user
   postgresql_user:

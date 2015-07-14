@@ -7,8 +7,6 @@ rubies:
     alias: ruby-2.1
 
 
-madek_webapp_port: 8880
-madek_webapp_context: "/ts-test"
 madek_webapp_context_filename_part: '{{madek_webapp_context | default("root") | replace("/","_") | regex_replace("^_+(.*)$","\\1") }}'
 madek_configuration_management_url: 'http://localhost:{{madek_webapp_port}}{{madek_webapp_context}}/configuration_management_backdoor/invoke'
 
