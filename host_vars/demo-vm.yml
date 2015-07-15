@@ -1,7 +1,7 @@
 ### specific settings for a local virtual machine
 
 madek_webapp_port: 8880
-madek_webapp_context: "/v3"
+madek_webapp_context: "/"
 
 secret_key_base: secret
 

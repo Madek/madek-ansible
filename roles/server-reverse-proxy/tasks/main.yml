@@ -36,13 +36,13 @@
 
 - template:
     src: shared-site.apache.conf
-    dest: /etc/apache2/shared/madek_{{madek_webapp_context_filename_part}}_site.conf
+    dest: /etc/apache2/shared/madek_{{madek_webapp_name}}_site.conf
     mode: 0644
 
 
 - lineinfile:
     dest: "{{madek_host_apps_path}}"
-    line: "Include /etc/apache2/shared/madek_{{madek_webapp_context_filename_part}}_site.conf"
+    line: "Include /etc/apache2/shared/madek_{{madek_webapp_name}}_site.conf"
 
 ### http site #################################################################
 
