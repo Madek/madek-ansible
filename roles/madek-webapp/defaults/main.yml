@@ -7,6 +7,6 @@ madek_webapp_theme: bootstrap-plain
 
 madek_webapp:
   ruby:
-    version: jruby-9.0.0.0.rc1
+    version: jruby-9.0.0.0
     alias: jruby-9000
 
