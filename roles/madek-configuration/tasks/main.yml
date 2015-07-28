@@ -10,4 +10,7 @@
     dest: "{{madek_webapp_dir}}/config/secrets.yml"
   register: secret
 
-
+  template:
+    src: settings.local.yml
+    dest: "{{madek_webapp_dir}}/config/settings.local.yml"
+    mode: 0755
