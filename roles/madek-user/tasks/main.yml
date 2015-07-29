@@ -6,8 +6,8 @@
 - name: Add the user
   user:
     name: "{{madek_user}}"
-    generate_ssh_key: yes
     group: "{{madek_user}}"
+    home: "{{madek_user_home}}"
     system: yes
     shell: /bin/bash
 
@@ -35,4 +35,12 @@
     - "{{madek_webapp_dir}}/log"
 
 
+- name: lock madek home for writing
+  file:
+    path: "~{{madek_user}}"
+    owner: root
+    group: root
+    state: directory
+    recurse: yes
+  tags: ['debug']
 

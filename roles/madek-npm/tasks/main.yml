@@ -6,15 +6,13 @@
     recurse: yes
   with_items:
     - "{{path}}/node_modules"
-
+    - "~{{madek_user}}/.npm"
 
 - name: npm install
   shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
-          && rbenv-load
           && cd {{madek_webapp_dir}}/
           && npm install' {{madek_user}}
   register: npm_install
-
 
 - file:
     path: "{{item}}"
@@ -24,5 +22,4 @@
     recurse: yes
   with_items:
     - "{{path}}/node_modules"
-
-
+    - "~{{madek_user}}/.npm"

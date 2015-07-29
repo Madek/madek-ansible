@@ -7,6 +7,7 @@
   with_items:
     - "{{path}}/vendor/bundle"
     - "{{path}}/node_modules"
+    - "{{path}}/.bundle"
 
 - name: "Bundle {{ruby_version}}"
   shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
@@ -28,5 +29,4 @@
   with_items:
     - "{{path}}/vendor/bundle"
     - "{{path}}/node_modules"
-
-
+    - "{{path}}/.bundle"

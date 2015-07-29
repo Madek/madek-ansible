@@ -18,6 +18,7 @@ dependencies:
 
   - role: rbenv
     user: "{{madek_user}}"
+    rbenv_change_owner_post_setup: root
 
   - role: rbenv-ruby
     user: "{{madek_user}}"

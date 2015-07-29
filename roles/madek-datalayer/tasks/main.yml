@@ -5,6 +5,17 @@
     state: directory
     recurse: yes
 
+- name: Drop DB
+  shell:  su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
+            && rbenv-load
+            && cd {{madek_root_dir}}/webapp/
+            && export RAILS_ENV={{rails_env}}
+            && export RBENV_VERSION={{mri_ruby_version}}
+            && bundle exec rake db:pg:terminate_connections
+            && bundle exec rake db:pg:terminate_connections db:drop' {{madek_user}}
+          executable=/bin/bash
+  when: madek_datalayer_drop_database
+
 - name: Migrate
   shell:  su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
             && rbenv-load
