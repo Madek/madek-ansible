@@ -23,4 +23,5 @@ dependencies:
     ruby_version: "{{rubies.mri.version}}"
 
   - role: madek-npm
-
+    path: "{{madek_webapp_dir}}"
+    user: "{{madek_user}}"

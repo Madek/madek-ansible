@@ -1,9 +1,12 @@
 - file:
-    path: "{{path}}"
+    path: "{{item}}"
     owner: "{{user}}"
     group: "{{user}}"
     state: directory
     recurse: yes
+  with_items:
+    - "{{path}}/vendor/bundle"
+    - "{{path}}/node_modules"
 
 - name: "Bundle {{ruby_version}}"
   shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
@@ -15,3 +18,15 @@
          executable=/bin/bash
   register: bundle_mri
   changed_when: bundle_mri.stdout | match(".*Installing.*")
+
+- file:
+    path: "{{item}}"
+    owner: root
+    group: root
+    state: directory
+    recurse: yes
+  with_items:
+    - "{{path}}/vendor/bundle"
+    - "{{path}}/node_modules"
+
+

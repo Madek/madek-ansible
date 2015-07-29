@@ -1,9 +1,12 @@
 - file:
-    path: "{{madek_webapp_dir}}/node_modules"
-    owner: "{{madek_user}}"
-    group: "{{madek_user}}"
+    path: "{{item}}"
+    owner: "{{user}}"
+    group: "{{user}}"
     state: directory
     recurse: yes
+  with_items:
+    - "{{path}}/node_modules"
+
 
 - name: npm install
   shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh
@@ -11,5 +14,15 @@
           && cd {{madek_webapp_dir}}/
           && npm install' {{madek_user}}
   register: npm_install
+
+
+- file:
+    path: "{{item}}"
+    owner: root
+    group: root
+    state: directory
+    recurse: yes
+  with_items:
+    - "{{path}}/node_modules"
 
 

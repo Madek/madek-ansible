@@ -16,4 +16,11 @@
   register: migrate
   changed_when: not migrate.stdout | match("")
 
+- file:
+    path: "{{madek_root_dir}}/webapp/db"
+    owner: root
+    group: root
+    state: directory
+    recurse: yes
+
 
